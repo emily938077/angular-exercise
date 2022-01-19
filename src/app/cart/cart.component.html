@@ -6,3 +6,18 @@
   <span>{{ item.name }}</span>
   <span>{{ item.price | currency }}</span>
 </div>
+
+<!-- 
+  使用 formGroup 屬性繫結將 checkoutForm 繫結到 HTML 中的 <form> 標籤
+  每個欄位都有一個 formControlName 屬性，該屬性繫結到 checkoutForm 表單控制元件，以將 name 和 address 繫結到其 <input> 欄位 -->
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name</label>
+    <input id="name" type="text" formControlName="name" />
+  </div>
+  <div>
+    <label for="address">Address</label>
+    <input id="address" type="text" formControlName="address" />
+  </div>
+  <button class="button" type="submit">Purchase</button>
+</form>
